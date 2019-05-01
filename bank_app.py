@@ -1,4 +1,5 @@
-import pandas
+#Importing pandas
+import pandas as pd
 
 class Validation():
     username=input("enter username:")
@@ -6,15 +7,17 @@ class Validation():
     def checking(self, bal):
         
 
-        df=pandas.read_csv('Auth.csv',)
+        df=pd.read_csv('Auth.csv')
         for i  in df:
              if df.iloc[0, 0] == self.username and df.iloc[0, 1] == self.password:
-                 print("Your bank balance is:", bal)
+                 
+                 print("Your account balance is", bal)
+
              else:
                  print("invalid credentials")    
 
 
-class Bank(Validation):
+class Banking(Validation):
 
    def moneyWithdraw(self,bal):
          a=int(input("enter amout to withdraw:"))
@@ -37,7 +40,7 @@ class Bank(Validation):
 
 
 
-b=Bank()
+b=Banking()
 b.checking(1000)
    
 choice=True
